@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>家宴点单</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="hero-sub">Family Table</p>
+        <h1>家宴点单</h1>
+        <p class="hero-desc">苹果风简约界面，多人共享同一桌点单与想吃清单。</p>
+      </header>
+
+      <section class="room-card glass">
+        <label for="roomId">桌号（分享同一链接即可同步）</label>
+        <div class="row">
+          <input id="roomId" placeholder="例如 A01" maxlength="20" />
+          <button id="applyRoomBtn" class="btn-primary">进入</button>
+        </div>
+      </section>
+
+      <nav class="top-switch glass" aria-label="页面切换">
+        <button class="switch-btn active" data-page="menu">点菜栏</button>
+        <button class="switch-btn" data-page="wish">想吃栏</button>
+      </nav>
+
+      <section id="menuPage" class="page active" aria-label="点菜栏页面">
+        <section class="category-tabs" aria-label="点菜栏分类">
+          <button class="tab active" data-category="all">全部</button>
+          <button class="tab" data-category="cold">凉菜</button>
+          <button class="tab" data-category="hot">热菜</button>
+          <button class="tab" data-category="staple">主食</button>
+          <button class="tab" data-category="dessert">甜品</button>
+          <button class="tab" data-category="drink">饮品</button>
+        </section>
+
+        <section id="menuList" class="menu-list"></section>
+      </section>
+
+      <section id="wishPage" class="page" aria-label="想吃栏页面">
+        <section class="wish-input-card glass">
+          <h2>添加想吃的菜</h2>
+          <div class="wish-row">
+            <input id="wishName" placeholder="例如：糖醋排骨" maxlength="30" />
+            <button id="addWishBtn" class="btn-primary">添加</button>
+          </div>
+          <p class="helper">可以补充菜单里没有的菜，方便统一采购或下单。</p>
+        </section>
+        <section id="wishList" class="wish-list"></section>
+      </section>
+
+      <section id="selectedList" class="selected-list"></section>
+
+      <footer class="bottom-bar glass-dark">
+        <div>
+          <p class="label">已点</p>
+          <strong id="itemCount">0 项</strong>
+        </div>
+        <div>
+          <p class="label">合计</p>
+          <strong id="totalPrice">¥0</strong>
+        </div>
+        <button id="syncBtn" class="btn-light">保存同步</button>
+      </footer>
+    </main>
+
+    <template id="menuItemTemplate">
+      <article class="menu-item glass">
+        <div>
+          <h3 class="name"></h3>
+          <p class="desc"></p>
+          <p class="price"></p>
+        </div>
+        <button class="btn-primary add-btn">加入</button>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
