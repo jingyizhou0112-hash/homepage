@@ -1,0 +1,91 @@
+:root {
+  --bg-a: #eef2f7;
+  --bg-b: #f9fbff;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --accent: #0071e3;
+  --line: rgba(15, 23, 42, 0.08);
+  --glass: rgba(255, 255, 255, 0.72);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  margin: 0;
+  font-family: "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top right, #dbeafe 0%, transparent 35%), linear-gradient(160deg, var(--bg-a), var(--bg-b));
+}
+
+.app-shell { max-width: 480px; margin: 0 auto; padding: 1rem 1rem 7rem; }
+.hero h1 { margin: 0.2rem 0; font-size: 1.8rem; letter-spacing: -0.02em; }
+.hero-sub { margin: 0; font-size: 0.82rem; color: var(--muted); }
+.hero-desc { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.room-card, .wish-input-card { padding: 0.85rem; margin-top: 0.9rem; }
+.room-card label { display: block; font-size: 0.82rem; margin-bottom: 0.45rem; color: var(--muted); }
+.row, .wish-row { display: flex; gap: 0.55rem; }
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+button { border: 0; border-radius: 12px; padding: 0.58rem 0.88rem; font-weight: 600; transition: all .18s ease; }
+button:active { transform: scale(0.97); }
+
+.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 16px rgba(0, 113, 227, 0.22); }
+.btn-light { background: #fff; color: #111; }
+
+.top-switch { display: flex; gap: 0.45rem; padding: 0.35rem; margin: 0.9rem 0 0.7rem; }
+.switch-btn { flex: 1; background: transparent; color: var(--muted); }
+.switch-btn.active { background: #fff; color: var(--text); }
+
+.page { display: none; animation: fadeIn .25s ease; }
+.page.active { display: block; }
+
+.category-tabs { display: flex; gap: 0.45rem; overflow-x: auto; padding-bottom: 0.55rem; }
+.tab { white-space: nowrap; background: rgba(255,255,255,.75); border: 1px solid var(--line); color: #384150; }
+.tab.active { color: var(--accent); border-color: rgba(0,113,227,.25); background: #fff; }
+
+.menu-list, .wish-list, .selected-list { display: grid; gap: 0.7rem; }
+.menu-item { display: flex; justify-content: space-between; gap: 0.6rem; padding: 0.8rem; }
+.name { margin: 0; font-size: 1rem; }
+.desc { margin: 0.24rem 0; color: var(--muted); font-size: 0.84rem; }
+.price { margin: 0; font-weight: 700; }
+
+.wish-input-card h2 { margin: 0 0 0.5rem; font-size: 1rem; }
+.helper { margin: 0.45rem 0 0; color: var(--muted); font-size: 0.8rem; }
+.wish-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0.8rem; }
+
+.selected-card { padding: 0.8rem; }
+.selected-title { margin: 0 0 0.4rem; color: var(--muted); font-size: 0.86rem; }
+.selected-row { display: flex; justify-content: space-between; margin: 0.2rem 0; }
+
+.glass-dark {
+  position: fixed;
+  left: 50%; bottom: 1rem; transform: translateX(-50%);
+  width: min(440px, calc(100% - 2rem));
+  border-radius: 16px;
+  padding: 0.75rem 0.9rem;
+  background: rgba(17, 24, 39, .85);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(16px);
+  color: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.65rem;
+}
+.label { margin: 0; color: #9ca3af; font-size: .74rem; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: none;} }
